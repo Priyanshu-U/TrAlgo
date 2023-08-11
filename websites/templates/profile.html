@@ -1,0 +1,103 @@
+{% extends "basic.html"%} {%block head%}
+<title>{{user.username}}'s Profile</title>
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/profile.css')}}" />
+
+{%endblock%} {% block content%}
+
+<body>
+  <div class="container">
+    <div class="profile-header">
+      <div class="profile-img">
+        <img src="https://avatars.dicebear.com/api/gridy/{{user.email}}.svg?" width="200" alt="Profile Image" />
+      </div>
+      <div class="profile-nav-info">
+        <h3 class="user-name">{{user.username}}</h3>
+        <div class="email">
+          <p>{{user.email}}</p>
+        </div>
+        <div class="email">
+          <button on class="dlt-hist">
+            <a href="/deletehistory">Clear History</a>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-bd">
+      <div class="left-side">
+        <div class="profile-side">
+          <div class="user-bio">
+            <h3>Notes</h3>
+
+            <form method="POST">
+              <input name="bio" id="bio" type="text" placeholder="Add a new note..." autocomplete="off" />
+            </form>
+
+            {%for i in user.bio|reverse%}
+            <div class="note">
+              <p class="bio">{{i.data}}</p>
+              <a href="/delete/{{i.id}}" class="close">
+                <span>&times;</span>
+              </a>
+            </div>
+            {%endfor%}
+          </div>
+        </div>
+      </div>
+      <div class="profile-body">
+        <h3>History</h3>
+        <div class="card" style="transform:scale(1.03) ">
+          <p>
+            <ion-icon name="stats-chart"></ion-icon>
+          </p>
+          <p>
+            <ion-icon name="pencil"></ion-icon>
+          </p>
+          <p>
+            <ion-icon name="calendar"></ion-icon>
+          </p>
+          <p>
+            <ion-icon name="hourglass"></ion-icon>
+          </p>
+          <p>
+            <ion-icon name="leaf"></ion-icon>
+          </p>
+        </div>
+        {% for card in user.cards|reverse %}
+        <div class="card">
+          <span>{{card.type}}</span><span>{{card.query_in}}</span><span>{{card.date}}</span>
+          <span>{{card.time}}</span>
+
+          <span>
+            {%if card.res ==-1%}
+            <ion-icon name="close" style="color: #C30A3E; transform: scale(1.5);"></ion-icon>
+            {%elif card.res==0%}
+            <ion-icon name="trending-down" style="color: #C30A3E; transform: scale(1.5);"></ion-icon>
+            {%elif card.res==1%}
+            <ion-icon name="swap-vertical" style="color: #67B0FF; transform: scale(1.5);"></ion-icon>
+            {%elif card.res>1%}
+            <ion-icon name="trending-up" style="color: #2DC937; transform: scale(1.5);"></ion-icon>
+            {%endif%}
+
+          </span>
+        </div>
+
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("form").addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        document.getElementById("form").submit();
+        return false;
+      }
+    });
+  </script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+{%endblock%}

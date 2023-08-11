@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../static/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../static/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../static/images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../static/images/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/style.css') }}"
+    />
+    {% block head%} {%endblock%}
+  </head>
+
+  <body class="dark">
+    <nav class="hero-anime">
+      <div class="navigation-wrap bg-light start-header start-style">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <nav class="navbar navbar-expand-md navbar-light">
+                <a class="navbar-brand" href="/"
+                  ><img
+                    src="./static/images/Algobazzi.png"
+                    width="80px"
+                    alt="" /></a
+                ><button
+                  class="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div
+                  class="collapse navbar-collapse"
+                  id="navbarSupportedContent"
+                >
+                  <ul class="navbar-nav ml-auto py-4 py-md-0">
+                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                      <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
+                      <a
+                        class="nav-link dropdown-toggle"
+                        data-toggle="dropdown"
+                        href="#"
+                        role="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        >Strategies</a
+                      >
+                      <div class="dropdown-menu">
+                        <a
+                          class="dropdown-item"
+                          href="https://www.investopedia.com/terms/r/rsi.asp"
+                          >Relative Strength Index</a
+                        >
+                        <a
+                          class="dropdown-item"
+                          href="https://www.investopedia.com/ask/answers/071414/whats-difference-between-moving-average-and-weighted-moving-average.asp"
+                          >Moving Averages</a
+                        >
+                        <a
+                          class="dropdown-item"
+                          href="https://www.investopedia.com/terms/s/stochasticoscillator.asp"
+                          >Stochastic Oscillator</a
+                        >
+                        <a
+                          class="dropdown-item"
+                          href="https://github.com/DrXfqqt/Algo-Trading/blob/main/Algo%20Trading.ipynb"
+                          >Prediction Model</a
+                        >
+                        <a
+                          class="dropdown-item"
+                          href="https://github.com/gopixiedust/Algo-Bazziiii"
+                          >Source Code</a
+                        >
+                      </div>
+                    </li>
+                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                      <a class="nav-link" href="/contributers">Contributers</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                      <a class="nav-link" href="/profile">User Profile</a>
+                    </li>
+                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                      <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                      <a class="nav-link" href="/login">Login</a>
+                    </li>
+                    {%endif%}
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    {% block content%} {%endblock%} 
+    {% with messages =
+    get_flashed_messages(with_categories=true) %}
+     {% if messages %}
+      {% for
+    category, message in messages %}
+    <div
+      class="alert alert-{{category}} alter-dismissable fade show"
+      role="alert"
+    >
+      {{ message }}
+      <button type="button" class="close" data-dismiss="alert">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    {% endfor %} {% endif %} {% endwith %}
+    <style>
+      .alert {
+        text-align: center;
+        position: fixed;
+        bottom: 0;
+        width: 75%;
+        margin: 1vh 5vh;
+        font-size: 1.2rem;
+      }
+      .alert-error {
+        background-color: #f44336;
+      }
+      .alert-success {
+        background-color: #4caf50;
+      }
+    </style>
+    <script src="{{url_for('static', filename='scripts/script.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.3.3/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  </body>
+</html>

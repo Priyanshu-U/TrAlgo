@@ -1,0 +1,24 @@
+{% extends "basic.html"%} {% block head%}
+
+<title>Nifty</title>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static',filename='styles/nifty.css')}}"
+/>
+{% endblock %} {% block content%}
+<body>
+  <main>
+    <section>
+      <div class="info">
+        <p>Prediction for tomorrow's Closing Price</p>
+      </div>
+    </section>
+    <section>
+      <div class="info">
+        <p>{{pred|safe}}</p>
+      </div>
+    </section>
+  </main>
+</body>
+{% endblock %}

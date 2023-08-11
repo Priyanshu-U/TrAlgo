@@ -1,0 +1,50 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900);
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+body {
+  font-family: Poppins, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #fff;
+  background-color: #1f2029;
+  margin: 0;
+  padding: 0;
+  overflow-x: none;
+  padding-top: 10vh;
+}
+main {
+  align-items: center;
+  justify-content: center;
+}
+
+.chart .modebar-group:last-child {
+  visibility: hidden;
+}
+
+.info p {
+  font-size: 5vw;
+  background-color: rgba(0, 0, 0, 0.158);
+}
+
+.info {
+  margin:5vh  0 0 0 ;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.158);
+} 
+
+.info span {
+  font-size: 5vw;
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-top: 15vh;
+  }
+}

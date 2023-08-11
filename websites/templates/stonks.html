@@ -1,0 +1,58 @@
+{% extends "basic.html"%} {% block head%}
+
+<title>Stonks</title>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static',filename='styles/stonks.css')}}"
+/>
+{% endblock %} {% block content%}
+<body>
+  <main>
+    <section class="gauge">
+      <div class="chart-gauge"></div>
+    </section>
+
+    <section class="search">
+      <form class="search-box" method="POST">
+        <input
+          type="search"
+          placeholder="Enter Stock Code... "
+          name="query"
+          id="query"
+          value="{{query}}"
+          autocomplete="off"
+        />
+      </form>
+    </section>
+    <center>
+      <div class="chart">{{chart|safe}}</div>
+    </center>
+     <div id="hidden" 
+     style="display: none"
+     >{{res}}</div>
+   
+
+<div class="spinner">
+    <div class="load-wrapper" >
+      <span class="loader"><span class="loader-inner"></span></span>
+    </div>
+  </div>
+  
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.3.3/d3.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+  var pan = document.querySelector('[data-title="Pan"]');
+  pan.click();
+    document.getElementById("form").addEventListener("keyup", function (event) {
+      if (event.keyCode === 13) {
+        document.getElementById("form").submit();
+        return false;
+      }
+    });
+  </script>
+  
+</body>
+{%endblock%}

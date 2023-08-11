@@ -1,0 +1,35 @@
+{% extends "basic.html"%} {% block head%}
+
+<title>Nifty</title>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{{ url_for('static',filename='styles/nifty.css')}}"
+/>
+{% endblock %} {% block content%}
+<body>
+  <main>
+    <section>
+      <div class="info">
+        <p>NIFTY 50</p>
+      </div>
+    </section>
+    <section>
+      <div class="chart">{{chart|safe}}</div>
+      <button>
+        <a href="/nifty/prediction" target="_blank">View Cost</a>
+      </button>
+      <!-- <iframe id="inlineFrameExample"
+    title="Inline Frame Example"
+    height="200"
+    style="border: 0px;width: 100%;"
+    src="http://127.0.0.1:5000/prediction.html">
+</iframe> -->
+    </section>
+  </main>
+</body>
+<script>
+  var pan = document.querySelector('[data-title="Pan"]');
+  pan.click();
+</script>
+{% endblock %}

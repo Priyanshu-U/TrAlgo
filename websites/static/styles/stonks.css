@@ -1,0 +1,138 @@
+main {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search {
+    /* display:block; */
+    width: 80vh;
+    margin: 5px auto;
+    padding-top: 2vh;
+  }
+  
+  .search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px;
+    transition: 0.4s;
+    margin-bottom: 20px;
+    /* min-width: 120px; */
+  }
+  .search-box input {
+    display: block;
+    appearance: none;
+    outline: none;
+    border: none;
+    background-color: #c1bdc7;
+    width: 100%;
+    padding: 16px;
+    font-size: 20px;
+  }
+  .search-box:focus-within {
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+  }
+
+  
+  
+  @media only screen and (max-width: 1200px) {
+    /*Tablets [601px -> 1200px]*/
+    .gauge{
+    transform: scale(0.95);
+  }
+    .search-box {
+      max-width: 500px;
+    }
+    .search {
+      width: 50vh;
+      margin: 5px auto;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    /*Big smartphones [426px -> 600px]*/
+  .gauge{
+    transform: scale(0.8);
+  }
+    .search-box {
+      max-width: 350px;
+      min-width: 200px;
+      /* margin-top: 6vh; */
+    }
+    .search {
+      width: 40vh;
+      margin: 5px auto;
+    }
+  }
+  @media only screen and (max-width: 425px) {
+    /*Small smartphones [325px -> 425px]*/
+  .gauge{
+    transform: scale(0.75);
+  }
+  .chart-gauge{
+    justify-self: center;
+  }
+    .search-box {
+      max-width: 350px;
+      min-width: 200px;
+      /* margin-top: 8vh; */
+    }
+    .search-box input {
+      font-size: 15px;
+    }
+    .search {
+      width: 40vh;
+      margin: 6px auto;
+    }
+  }
+  
+  
+  /* gauge */
+  .gauge{
+    align-items: center;
+  }
+  .chart-gauge {
+    width: 400px;
+    margin: 16vh auto 1vh auto;
+    padding: 0%;
+    margin-bottom: 0%;
+    justify-self: center;
+  }
+  .chart-gauge svg{
+    padding-bottom: 0%;
+    height: 210px;
+  }
+  
+  
+  .chart-color1 {
+    fill: #cc3232
+
+  }
+  
+  .chart-color2 {
+    fill: #67B0FF;
+  }
+  
+  .chart-color3 {
+    fill: #2dc937;
+  }
+  
+  .needle,.needle-center{
+    z-index: 100;
+    fill: #C1BDC7
+  }
+
+
+  /* .chart{
+    align-items: center;
+    width: 80%;
+    border-radius: 50%;
+  } */
+  .chart .modebar-group:last-child{
+    visibility: hidden;
+  }
+  
