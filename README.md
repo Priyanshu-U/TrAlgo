@@ -2,6 +2,11 @@
 
 Welcome to TraAlgo, a project that combines Flask and Python to create robust data pipelines for gathering, preprocessing, and analyzing data to provide actionable insights through comprehensive technical analyses.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)
+![Pandas Version](https://img.shields.io/badge/pandas-1.3.3-blue)
+
+
 ## Overview
 
 Project Tralgo focuses on utilizing Flask and Python to build efficient data pipelines that enable the seamless collection, preprocessing, and analysis of data. By leveraging these pipelines, we aim to extract meaningful insights from the collected data, facilitating informed decision-making. This project showcases the power of data-driven approaches in today's decision-making processes.
