@@ -22,7 +22,7 @@ To get started with TraAlgo, follow these steps:
 
 1. **Clone the Repository:** Clone this repository to your local machine using the following command:
    ```sh
-   git clone https://github.com/your-username/TraAlgo.git
+   git clone https://github.com/priyanshu-u/TraAlgo.git
    ```
 
 2. **Install Dependencies:** Navigate to the project directory and install the necessary dependencies:
@@ -67,10 +67,8 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For questions or further information, feel free to reach out to [your-email@example.com](mailto:your-email@example.com).
+For questions or further information, feel free to reach out to [upadhyaypriyanshu24@gmail.com](mailto:upadhyaypriyanshu24@gmail.com).
 
 ---
 
-By [Your Name]
-
-This README template was created with ❤️ using Markdown.
+By Priyanshu Upadhyay
